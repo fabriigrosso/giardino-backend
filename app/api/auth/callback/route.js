@@ -2,8 +2,8 @@
 // Callback de Google OAuth: recibe el authorization_code, lo intercambia por tokens,
 // los guarda en Redis y muestra una página de éxito con el access_token para el usuario.
 
-import { storeOAuthTokens } from '../../../lib/auth';
-import { getRedis } from '../../../lib/db';
+import { storeOAuthTokens } from '../../../../lib/auth';
+import { getRedis } from '../../../../lib/db';
 
 export async function GET(req) {
   const url = new URL(req.url);

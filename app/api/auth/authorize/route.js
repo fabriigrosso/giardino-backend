@@ -28,7 +28,7 @@ export async function GET(req) {
   const codeChallenge = await sha256Base64Url(codeVerifier);
 
   // Guardamos code_verifier y state en Redis con TTL corto (10 min)
-  const redis = (await import('../../../lib/db')).getRedis();
+  const redis = (await import('../../../../lib/db')).getRedis();
   await redis.set(`oauth:pkce:${state}`, JSON.stringify({ codeVerifier, redirectUri }), { ex: 600 });
 
   const params = new URLSearchParams({

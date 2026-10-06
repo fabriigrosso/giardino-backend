@@ -2,8 +2,8 @@
 // Endpoint de token OAuth 2.0 (para refresh_token flow)
 // Acepta grant_type=refresh_token y devuelve nuevo access_token
 
-import { refreshAccessToken, storeOAuthTokens } from '../../../lib/auth';
-import { getRedis } from '../../../lib/db';
+import { refreshAccessToken, storeOAuthTokens } from '../../../../lib/auth';
+import { getRedis } from '../../../../lib/db';
 
 export async function POST(req) {
   const contentType = req.headers.get('content-type') || '';
