@@ -125,7 +125,7 @@ const mcpHandler = createMcpHandler((server) => {
 });
 
 async function withAuth(req) {
-  const unauthorized = requireAuth(req);
+  const unauthorized = await requireAuth(req);
   if (unauthorized) return unauthorized;
   return mcpHandler(req);
 }

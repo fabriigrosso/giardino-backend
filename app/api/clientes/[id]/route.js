@@ -2,7 +2,7 @@ import { requireAuth } from '../../../../lib/auth';
 import { getClientes, setClientes } from '../../../../lib/db';
 
 export async function PATCH(req, { params }) {
-  const unauthorized = requireAuth(req);
+  const unauthorized = await requireAuth(req);
   if (unauthorized) return unauthorized;
   const { id } = await params;
   const body = await req.json();
@@ -15,7 +15,7 @@ export async function PATCH(req, { params }) {
 }
 
 export async function DELETE(req, { params }) {
-  const unauthorized = requireAuth(req);
+  const unauthorized = await requireAuth(req);
   if (unauthorized) return unauthorized;
   const { id } = await params;
   const clientes = (await getClientes()).filter((c) => c.id !== id);

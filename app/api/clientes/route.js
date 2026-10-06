@@ -3,13 +3,13 @@ import { getClientes, setClientes } from '../../../lib/db';
 import { agregarCliente } from '../../../lib/logic';
 
 export async function GET(req) {
-  const unauthorized = requireAuth(req);
+  const unauthorized = await requireAuth(req);
   if (unauthorized) return unauthorized;
   return Response.json(await getClientes());
 }
 
 export async function POST(req) {
-  const unauthorized = requireAuth(req);
+  const unauthorized = await requireAuth(req);
   if (unauthorized) return unauthorized;
   const body = await req.json();
   if (!body.nombre) {
@@ -22,7 +22,7 @@ export async function POST(req) {
 // Reemplazo masivo: lo usa el botón "Subir a la nube" de la app,
 // que empuja todo el arreglo de clientes tal cual lo tiene localStorage.
 export async function PUT(req) {
-  const unauthorized = requireAuth(req);
+  const unauthorized = await requireAuth(req);
   if (unauthorized) return unauthorized;
   const body = await req.json();
   await setClientes(Array.isArray(body) ? body : []);
