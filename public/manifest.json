@@ -1,0 +1,12 @@
+{
+  "name": "Giardino San Juan",
+  "short_name": "Giardino SJ",
+  "description": "Cotizador y gestión de jardinería — Fabrizio Grosso",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0b1119",
+  "theme_color": "#0b1119",
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
